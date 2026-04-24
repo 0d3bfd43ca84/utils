@@ -17,7 +17,6 @@
 
 .PARAMETER Length
     Longitud de cada password. Default: 24. Rango: 16-39.
-    El limite superior de 39 corresponde al hard limit del firmware iLO HPE.
 
 .PARAMETER MinEach
     Minimo de caracteres por grupo (mayus/minus/digitos/simbolos).
@@ -63,8 +62,8 @@ if ($MinEach * 4 -gt $Length) {
 # Sin ambiguos visuales (0/O, 1/l/I) ni chars problematicos en JSON/Basic Auth
 $upper   = 'ABCDEFGHJKMNPQRSTUVWXYZ'.ToCharArray()   # sin I, O
 $lower   = 'abcdefghjkmnpqrstuvwxyz'.ToCharArray()   # sin i, l, o
-$digits  = '23456789'.ToCharArray()                   # sin 0, 1
-$symbols = '!@#$*()-_=+[];:,.?'.ToCharArray()         # sin " ' ` \ < > % ^ ~ espacio
+$digits  = '23456789'.ToCharArray()                  # sin 0, 1
+$symbols = '!@#$*()-_=+[];:,.?'.ToCharArray()        # sin " ' ` \ < > % ^ ~ espacio
 
 $charset = $upper + $lower + $digits + $symbols
 
